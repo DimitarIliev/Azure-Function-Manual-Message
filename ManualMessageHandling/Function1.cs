@@ -26,12 +26,13 @@ namespace ManualMessageHandling
 
             if (success)
             {
-                await messageReceiver.CompleteAsync(mySbMsg.SystemProperties.LockToken);
+                
             }
             else
             {
-                await messageReceiver.DeadLetterAsync(mySbMsg.SystemProperties.LockToken);
+                //await messageReceiver.DeadLetterAsync(mySbMsg.SystemProperties.LockToken);
                 //await messageReceiver.AbandonAsync(mySbMsg.SystemProperties.LockToken);
+                throw new Exception("Failed!");
             }
 
         }
